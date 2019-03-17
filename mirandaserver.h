@@ -24,6 +24,7 @@ private:
   QString       m_address;
   QString       m_pid;
   int           m_maxThreadCount;
+  bool          m_service;
 
 };
 

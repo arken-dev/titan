@@ -26,16 +26,18 @@ MirandaServer::MirandaServer(QCoreApplication *app)
       throw;
     }
     QJsonObject object = json.object();
-    m_port =    object.value("port").toInt();
-    m_address = object.value("address").toString();
+    m_port           = object.value("port").toInt();
+    m_address        = object.value("address").toString();
     m_maxThreadCount = object.value("threads").toInt();
-    m_pid = object.value("pid").toString();
+    m_pid            = object.value("pid").toString();
+    m_service        = object.value("service").toBool();
   } else {
     qDebug() << "config/miranda.json file not exists";
-    m_port = 2345;
-    m_address = "localhost";
+    m_port           = 2345;
+    m_address        = "localhost";
     m_maxThreadCount = 15;
-    m_pid = "miranda.pid";
+    m_pid            = "miranda.pid";
+    m_service        = true;
   }
 
   QFileInfo dispatch = QFileInfo("dispatch.lua");
@@ -57,17 +59,23 @@ MirandaServer::MirandaServer(QCoreApplication *app)
   }
 
   // SERVICES
-  //QString dir("app/services");
-  if( os::exists("app/services") ) {
+  if( m_service && os::exists("app/services")) {
     charon::service::load("app/services");
-  } else {
-    qDebug() << "services dir not exists";
   }
 
   if( os::exists("logs") ) {
-    Log l = Log("logs/miranda.log");
-    l.info("iniciando miranda");
-    l.dump();
+    Log log = Log("logs/miranda.log");
+    log.info("iniciando miranda");
+    if( m_service ) {
+      if( os::exists("app/services") ) {
+        log.info("services started");
+      } else {
+        log.info("services dir not exists");
+      }
+    } else {
+      log.info("services not enable");
+    }
+    log.dump();
   }
 
 }
