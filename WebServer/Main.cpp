@@ -48,6 +48,7 @@ int main(int argc, char *argv[])
         }
     }
     Logger::setLogFileName(logPath);
+    /*
     LOG << os::abspath("app/services");
     if( os::exists(os::abspath("app/services")) ) {
       LOG << "iniciando services";
@@ -55,6 +56,7 @@ int main(int argc, char *argv[])
     } else {
       LOG <<  "nao tem diretorio app/services";
     }
+    */
 
     // STL库在多线程上应用
     #ifndef _PTHREADS
