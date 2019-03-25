@@ -13,8 +13,8 @@ using mvm = charon::mvm;
 int main(int argc, char *argv[])
 {
     mvm::init(argc, argv);
-    int threadNum = 4;
-    int port = 80;
+    int threadNum = os::cores();
+    int port = 2345;
 
     // parse args
     int opt;
