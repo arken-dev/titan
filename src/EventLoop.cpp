@@ -1,11 +1,11 @@
 // @Author Lin Ya
 // @Email xxbbb@vip.qq.com
 #include "EventLoop.h"
-#include "base/Logging.h"
 #include "Util.h"
 #include <sys/eventfd.h>
 #include <sys/epoll.h>
 #include <iostream>
+
 using namespace std;
 
 __thread EventLoop* t_loopInThisThread = 0;

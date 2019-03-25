@@ -2,7 +2,6 @@
 // @Email xxbbb@vip.qq.com
 #include "EventLoop.h"
 #include "Server.h"
-#include "base/Logging.h"
 #include <getopt.h>
 #include <string>
 #include <charon/mvm>

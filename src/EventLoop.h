@@ -3,13 +3,13 @@
 #pragma once
 #include "base/Thread.h"
 #include "Epoll.h"
-#include "base/Logging.h"
 #include "Channel.h"
 #include "base/CurrentThread.h"
 #include "Util.h"
 #include <vector>
 #include <memory>
 #include <functional>
+#include <assert.h>
 
 #include <iostream>
 using namespace std;
