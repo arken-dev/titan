@@ -41,4 +41,3 @@ target_link_libraries(titan Qt5::Core)
 target_link_libraries(titan Qt5::Network)
 
 add_subdirectory(base)
-add_subdirectory(tests)
