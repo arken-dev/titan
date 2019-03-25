@@ -22,6 +22,7 @@ int main(int argc, char *argv[])
     int  port          = 2345;
     charon::string pid = "titan.pid";
 
+    // TODO change without Qt JSON reader
     QFile config("config/titan.json");
     if( config.exists() ) {
       config.open(QIODevice::ReadOnly);
