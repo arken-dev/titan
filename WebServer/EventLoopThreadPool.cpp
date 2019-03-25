@@ -10,7 +10,7 @@ EventLoopThreadPool::EventLoopThreadPool(EventLoop* baseLoop, int numThreads)
 {
     if (numThreads_ <= 0)
     {
-        LOG << "numThreads_ <= 0";
+        std::cout << "numThreads_ <= 0";
         abort();
     }
 }

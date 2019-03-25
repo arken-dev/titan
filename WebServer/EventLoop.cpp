@@ -15,7 +15,7 @@ int createEventfd()
     int evtfd = eventfd(0, EFD_NONBLOCK | EFD_CLOEXEC);
     if (evtfd < 0)
     {
-        LOG << "Failed in eventfd";
+        std::cout << "Failed in eventfd";
         abort();
     }
     return evtfd;
@@ -33,7 +33,7 @@ EventLoop::EventLoop()
 {
     if (t_loopInThisThread)
     {
-        //LOG << "Another EventLoop " << t_loopInThisThread << " exists in this thread " << threadId_;
+        //std::cout << "Another EventLoop " << t_loopInThisThread << " exists in this thread " << threadId_;
     }
     else
     {
@@ -67,7 +67,7 @@ void EventLoop::wakeup()
     ssize_t n = writen(wakeupFd_, (char*)(&one), sizeof one);
     if (n != sizeof one)
     {
-        LOG<< "EventLoop::wakeup() writes " << n << " bytes instead of 8";
+        std::cout << "EventLoop::wakeup() writes " << n << " bytes instead of 8";
     }
 }
 
@@ -77,7 +77,7 @@ void EventLoop::handleRead()
     ssize_t n = readn(wakeupFd_, &one, sizeof one);
     if (n != sizeof one)
     {
-        LOG << "EventLoop::handleRead() reads " << n << " bytes instead of 8";
+        std::cout << "EventLoop::handleRead() reads " << n << " bytes instead of 8";
     }
     //pwakeupChannel_->setEvents(EPOLLIN | EPOLLET | EPOLLONESHOT);
     pwakeupChannel_->setEvents(EPOLLIN | EPOLLET);
@@ -108,7 +108,7 @@ void EventLoop::loop()
     assert(isInLoopThread());
     looping_ = true;
     quit_ = false;
-    //LOG_TRACE << "EventLoop " << this << " start looping";
+    //std::cout << "EventLoop " << this << " start looping";
     std::vector<SP_Channel> ret;
     while (!quit_)
     {

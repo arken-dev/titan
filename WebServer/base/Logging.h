@@ -40,5 +40,3 @@ private:
     Impl impl_;
     static std::string logFileName_;
 };
-
-#define LOG Logger(__FILE__, __LINE__).stream()

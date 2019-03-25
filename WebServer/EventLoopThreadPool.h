@@ -14,7 +14,7 @@ public:
 
     ~EventLoopThreadPool()
     {
-        LOG << "~EventLoopThreadPool()";
+        std::cout << "~EventLoopThreadPool()";
     }
     void start();
 

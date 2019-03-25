@@ -179,7 +179,7 @@ void HttpData::handleRead()
     {
         bool zero = false;
         int read_num = readn(fd_, inBuffer_, zero);
-        //LOG << "Request: " << inBuffer_;
+        //std::cout << "Request: " << inBuffer_;
         if (connectionState_ == H_DISCONNECTING)
         {
             //inBuffer_.clear();
@@ -222,7 +222,7 @@ void HttpData::handleRead()
             else if (flag == PARSE_URI_ERROR)
             {
                 perror("2");
-                LOG << "FD = " << fd_ << "," << inBuffer_ << "******";
+                std::cout << "FD = " << fd_ << "," << inBuffer_ << "******";
                 //inBuffer_.clear();
                 error_ = true;
                 handleError(fd_, 400, "Bad Request");

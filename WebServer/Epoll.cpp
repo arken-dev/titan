@@ -136,7 +136,7 @@ std::vector<SP_Channel> Epoll::getEventsRequest(int events_num)
         }
         else
         {
-            LOG << "SP cur_req is invalid";
+            std::cout << "SP cur_req is invalid";
         }
     }
     return req_data;
@@ -148,5 +148,5 @@ void Epoll::add_timer(SP_Channel request_data, int timeout)
     if (t)
         timerManager_.addTimer(t, timeout);
     else
-        LOG << "timer add fail";
+        std::cout << "timer add fail";
 }

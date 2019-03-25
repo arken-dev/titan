@@ -47,7 +47,7 @@ void Server::handNewConn()
     while((accept_fd = accept(listenFd_, (struct sockaddr*)&client_addr, &client_addr_len)) > 0)
     {
         EventLoop *loop = eventLoopThreadPool_->getNextLoop();
-        //LOG << "New connection from " << inet_ntoa(client_addr.sin_addr) << ":" << ntohs(client_addr.sin_port);
+        // cout << "New connection from " << inet_ntoa(client_addr.sin_addr) << ":" << ntohs(client_addr.sin_port);
         // cout << "new connection" << endl;
         // cout << inet_ntoa(client_addr.sin_addr) << endl;
         // cout << ntohs(client_addr.sin_port) << endl;
@@ -67,7 +67,7 @@ void Server::handNewConn()
         // 设为非阻塞模式
         if (setSocketNonBlocking(accept_fd) < 0)
         {
-            LOG << "Set non block failed!";
+            std::cout << "Set non block failed!";
             //perror("Set non block failed!");
             return;
         }
