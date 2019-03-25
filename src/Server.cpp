@@ -1,12 +1,15 @@
-// @Author Lin Ya
-// @Email xxbbb@vip.qq.com
+// Copyright 2015 Lin Ya (xxbbb@vip.qq.com)
+// Copyright 2016 The Charon Platform Authors.
+// All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
 #include "Server.h"
 #include "Util.h"
 #include <functional>
 #include <netinet/in.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
-
 
 Server::Server(EventLoop *loop, int threadNum, int port)
 :   loop_(loop),

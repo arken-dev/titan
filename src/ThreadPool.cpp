@@ -1,6 +1,8 @@
-// @Author Lin Ya
-// @Email xxbbb@vip.qq.com
-
+// Copyright 2015 Lin Ya (xxbbb@vip.qq.com)
+// Copyright 2016 The Charon Platform Authors.
+// All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
 
 // This file has not been used
 #include "ThreadPool.h"
