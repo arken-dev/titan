@@ -7,13 +7,18 @@
 #include <charon/mvm>
 #include <charon/base>
 
-using mvm = charon::mvm;
+using mvm     = charon::mvm;
+using Log     = charon::Log;
+using service = charon::service;
+
+
 
 int main(int argc, char *argv[])
 {
     mvm::init(argc, argv);
-    int threadNum = os::cores();
-    int port = 2345;
+    bool service  = true;
+    int  threadNum = os::cores();
+    int  port = 2345;
 
     // parse args
     int opt;
@@ -34,6 +39,26 @@ int main(int argc, char *argv[])
             }
             default: break;
         }
+    }
+
+      // SERVICES
+      if( service && os::exists("app/services")) {
+        charon::service::load("app/services");
+      }
+
+      if( os::exists("logs") ) {
+        Log log = Log("logs/titan.log");
+        log.info("iniciando titan");
+        if( service ) {
+          if( os::exists("app/services") ) {
+            log.info("services started");
+          } else {
+            log.info("services dir not exists");
+          }
+        } else {
+          log.info("services not enable");
+        }
+        log.dump();
     }
 
     EventLoop mainLoop;
