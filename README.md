@@ -1,6 +1,6 @@
 # TITAN
 
-Web server async multithreading based on Linux api
+Web server async multithreading based on Linux api.
 
 ## BUILD
 
