@@ -606,11 +606,9 @@ HeaderState HttpData::parseHeaders()
 AnalysisState HttpData::analysisRequest()
 {
 
-  int size = 0;
-  char * result = HttpHandle::sync(inBuffer_.c_str(), inBuffer_.size(), &size);
+  string result = HttpHandle::sync(inBuffer_.c_str(), inBuffer_.size());
   //outBuffer_ = result;
-  outBuffer_.append(result, size);
-  delete[] result;
+  outBuffer_.append(result);
 
   //inBuffer_.clear();
   //std::cout << inBuffer_ << std::endl;
