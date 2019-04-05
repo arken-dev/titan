@@ -25,5 +25,5 @@ add_executable(
 find_package(Qt5Core)
 find_package(Qt5Network)
 
-target_link_libraries( miranda Qt5::Core lua charon curl json )
-target_link_libraries( miranda Qt5::Network )
+target_link_libraries( miranda lua charon curl json )
+target_link_libraries( miranda Qt5::Core Qt5::Network )

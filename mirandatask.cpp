@@ -20,8 +20,9 @@ void MirandaTask::run()
 
   QTcpSocket socket;
   QByteArray buffer;
+  std::string data;
+  const char * result;
   int size;
-  char * result;
 
   // socket
   socket.setSocketDescriptor(m_descriptor);
@@ -31,7 +32,9 @@ void MirandaTask::run()
   }
 
   // Process Request
-  result = HttpHandle::sync(buffer.data(), buffer.size(), &size);
+  data   = HttpHandle::sync(buffer.data(), buffer.size());
+  result = data.c_str();
+  size   = data.size();
 
   //socket
   int bytes = 0;
@@ -43,5 +46,4 @@ void MirandaTask::run()
     socket.waitForBytesWritten();
   }
   socket.close();
-  delete[] result;
 }
