@@ -16,11 +16,16 @@
 using mvm     = charon::mvm;
 using Log     = charon::Log;
 using service = charon::service;
+using Config  = charon::net::Config;
 
 int main(int argc, char *argv[])
 {
     mvm::init(argc, argv);
 
+    Config c("config/titan.json");
+    std::cout << "start titan " << c.address() << ":" << c.port() <<
+      " (" << c.threads() << ") threads..." << std::endl;
+    /*
     bool service       = true;
     int  threadNum     = 4;
     int  port          = 2345;
@@ -64,9 +69,10 @@ int main(int argc, char *argv[])
       }
       log.dump();
     }
+    */
 
     EventLoop mainLoop;
-    Server myHTTPServer(&mainLoop, threadNum, port);
+    Server myHTTPServer(&mainLoop, c.threads() , c.port());
     myHTTPServer.start();
     mainLoop.loop();
     return 0;
