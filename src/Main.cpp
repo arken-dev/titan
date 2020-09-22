@@ -1,5 +1,5 @@
 // Copyright 2015 Lin Ya (xxbbb@vip.qq.com)
-// Copyright 2016 The Charon Platform Authors.
+// Copyright 2016 The Arken Platform Authors.
 // All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
@@ -8,15 +8,15 @@
 #include "Server.h"
 #include <getopt.h>
 #include <string>
-#include <charon/mvm>
-#include <charon/base>
+#include <arken/mvm>
+#include <arken/base>
 
 #include <QJsonObject>
 
-using mvm     = charon::mvm;
-using Log     = charon::Log;
-using service = charon::service;
-using Config  = charon::net::Config;
+using mvm     = arken::mvm;
+using Log     = arken::Log;
+using service = arken::service;
+using Config  = arken::net::Config;
 
 int main(int argc, char *argv[])
 {
@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
     bool service       = true;
     int  threadNum     = 4;
     int  port          = 2345;
-    charon::string pid = "titan.pid";
+    arken::string pid = "titan.pid";
 
     // TODO change without Qt JSON reader
     QFile config("config/titan.json");
@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
 
     // SERVICES
     if( service && os::exists("app/services")) {
-      charon::service::load("app/services");
+      arken::service::load("app/services");
     }
 
     if( os::exists("logs") ) {

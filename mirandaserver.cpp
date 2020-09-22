@@ -1,17 +1,17 @@
-// Copyright 2016 The Charon Platform Authors.
+// Copyright 2016 The Arken Platform Authors.
 // All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
 #include <mirandaserver.h>
 #include <mirandatask.h>
-#include <charon/base>
+#include <arken/base>
 #include <QDebug>
 #include <QFile>
 #include <QJsonObject>
 
-using charon::service;
-using charon::Log;
+using arken::service;
+using arken::Log;
 
 MirandaServer::MirandaServer(QCoreApplication *app)
 {
@@ -60,7 +60,7 @@ MirandaServer::MirandaServer(QCoreApplication *app)
 
   // SERVICES
   if( m_service && os::exists("app/services")) {
-    charon::service::load("app/services");
+    arken::service::load("app/services");
   }
 
   if( os::exists("logs") ) {
