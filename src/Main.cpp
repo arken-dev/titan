@@ -4,18 +4,18 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+#include <string>
+#include <QJsonObject>
 #include "EventLoop.h"
 #include "Server.h"
 #include <getopt.h>
-#include <string>
 #include <arken/mvm>
 #include <arken/base>
-
-#include <QJsonObject>
+#include <arken/log.h>
+#include <arken/net/config.h>
 
 using mvm     = arken::mvm;
 using Log     = arken::Log;
-using service = arken::service;
 using Config  = arken::net::Config;
 
 int main(int argc, char *argv[])
