@@ -22,11 +22,14 @@ set(SRCS
     EventLoopThread.cpp
     EventLoopThreadPool.cpp
     HttpData.cpp
-    Main.cpp
+    #Main.cpp
     Server.cpp
     #ThreadPool.cpp
     Timer.cpp
     Util.cpp
+    run.cpp
+    httpserver.cpp
+    ${PROJECT_SOURCE_DIR}/src/arken/net/httpserver/httpserver.cpp
 )
 
 find_package(Qt5Core)
@@ -36,11 +39,20 @@ find_package(Qt5Widgets)
 
 
 #set(EXECUTABLE_OUTPUT_PATH /home/ariveira/projetos/arken/bin)
+set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/clib/arken/net/HttpServer)
 
-add_executable(titan ${SRCS})
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC ")
 
-target_link_libraries(titan libserver_base arken lua)
-target_link_libraries(titan Qt5::Core)
-target_link_libraries(titan Qt5::Network)
+#add_executable(titan ${SRCS})
+add_library(
+  arken.net.HttpServer.titan SHARED ${SRCS}
+)
+
+set_target_properties(arken.net.HttpServer.titan PROPERTIES PREFIX "" OUTPUT_NAME titan)
+
+target_link_libraries(arken.net.HttpServer.titan arken libserver_base lua)
+#target_link_libraries(titan libserver_base arken lua)
+#target_link_libraries(titan Qt5::Core)
+#target_link_libraries(titan Qt5::Network)
 
 add_subdirectory(base)

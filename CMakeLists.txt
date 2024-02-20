@@ -15,6 +15,7 @@ set(CXX_FLAGS
     -Wall
     -std=c++11
     -D_PTHREADS
+    -fPIC
     -Wno-unused-parameter
     -O2
     -finline-functions
