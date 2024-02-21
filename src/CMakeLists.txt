@@ -39,7 +39,7 @@ find_package(Qt5Widgets)
 
 add_executable(titan ${SRCS})
 
-target_link_libraries(titan libserver_base arken lua)
+target_link_libraries(titan libserver_base arken)
 target_link_libraries(titan Qt5::Core)
 target_link_libraries(titan Qt5::Network)
 
