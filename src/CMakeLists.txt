@@ -50,7 +50,7 @@ add_library(
 
 set_target_properties(arken.net.HttpServer.titan PROPERTIES PREFIX "" OUTPUT_NAME titan)
 
-target_link_libraries(arken.net.HttpServer.titan arken libserver_base lua)
+target_link_libraries(arken.net.HttpServer.titan arken libserver_base)
 #target_link_libraries(titan libserver_base arken lua)
 #target_link_libraries(titan Qt5::Core)
 #target_link_libraries(titan Qt5::Network)
