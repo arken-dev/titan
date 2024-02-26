@@ -43,6 +43,7 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/clib/arken/net/HttpServer)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC ")
 
+<<<<<<< HEAD
 #add_executable(titan ${SRCS})
 add_library(
   arken.net.HttpServer.titan SHARED ${SRCS}
@@ -51,8 +52,5 @@ add_library(
 set_target_properties(arken.net.HttpServer.titan PROPERTIES PREFIX "" OUTPUT_NAME titan)
 
 target_link_libraries(arken.net.HttpServer.titan arken libserver_base)
-#target_link_libraries(titan libserver_base arken lua)
-#target_link_libraries(titan Qt5::Core)
-#target_link_libraries(titan Qt5::Network)
 
 add_subdirectory(base)
