@@ -32,12 +32,6 @@ set(SRCS
     ${PROJECT_SOURCE_DIR}/src/arken/net/httpserver/httpserver.cpp
 )
 
-find_package(Qt5Core)
-find_package(Qt5Network)
-find_package(Qt5Gui)
-find_package(Qt5Widgets)
-
-
 #set(EXECUTABLE_OUTPUT_PATH /home/ariveira/projetos/arken/bin)
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/clib/arken/net/HttpServer)
 
