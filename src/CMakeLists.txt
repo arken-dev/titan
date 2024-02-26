@@ -43,7 +43,6 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/clib/arken/net/HttpServer)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC ")
 
-<<<<<<< HEAD
 #add_executable(titan ${SRCS})
 add_library(
   arken.net.HttpServer.titan SHARED ${SRCS}
